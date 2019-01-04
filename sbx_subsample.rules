@@ -10,7 +10,8 @@ rule sample_reads:
     shell:
         """
         mv {input} {output}
-        vsearch --threads {threads} --gzip_decompress --no_progress --fastx_subsample {output} --sample_size {reads} --fastqout {input}
+        vsearch --threads {threads} --gzip_decompress --no_progress --fastx_subsample {output} --sample_size {params.reads} --fastqout {params.out_fastq}
+        pigz -p {params.out_fastq}
         if [ ! -f {input} ]; then
             echo "Subsampling failed"
             exit 1
