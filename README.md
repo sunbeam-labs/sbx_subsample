@@ -12,7 +12,7 @@ Clone the repo into your sunbeam `extensions/` folder, installing requirements t
 
 Add the options to your config file (replace "sunbeam_config.yml" with the name of your config file).
 
-    cat extensions/sbx_subsample/config.yml >> sunbeam_config.yml
+    cat $SUNBEAM_DIR/extensions/sbx_subsample/config.yml >> sunbeam_config.yml
 
 Make sure to edit the config file to include the depth to which you'd like to subsample.
 
