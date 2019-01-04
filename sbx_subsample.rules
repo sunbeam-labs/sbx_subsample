@@ -5,13 +5,13 @@ rule sample_reads:
         str(QC_FP/'decontam'/'full'/'{sample}_{rp}.fastq.gz')
     params:
         out_fastq = str(QC_FP/'decontam'/'{sample}_{rp}.fastq'),
-        reads = Cfg['sbx_subsample']['reads']
+        reads = Cfg['sbx_subsample']['num_reads']
     threads: Cfg['sbx_subsample']['threads']
     shell:
         """
         mv {input} {output}
         vsearch --threads {threads} --gzip_decompress --no_progress --fastx_subsample {output} --sample_size {params.reads} --fastqout {params.out_fastq}
-        pigz -p {params.out_fastq}
+        pigz -p {threads} {params.out_fastq}
         if [ ! -f {input} ]; then
             echo "Subsampling failed"
             exit 1
@@ -19,5 +19,5 @@ rule sample_reads:
         """
 
 rule all_subsample:
-     input:
-         expand(str(QC_FP/'decontam'/'full'/'{sample}_{rp}.fastq.gz'), sample=Samples.keys(), rp=Pairs)
+    input:
+        expand(str(QC_FP/'decontam'/'full'/'{sample}_{rp}.fastq.gz'), sample=Samples.keys(), rp=Pairs)
