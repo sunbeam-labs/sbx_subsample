@@ -2,7 +2,7 @@ rule sample_reads:
     input:
         str(QC_FP/'decontam'/'{sample}_{rp}.fastq.gz')
     output:
-        str(QC_FP/'decontam'/'full'/'{sample}_{rp}.fastq.gz')
+        str(QC_FP/'backup'/'{sample}_{rp}.fastq.gz')
     params:
         out_fastq = str(QC_FP/'decontam'/'{sample}_{rp}.fastq'),
         reads = Cfg['sbx_subsample']['num_reads']
@@ -20,4 +20,4 @@ rule sample_reads:
 
 rule all_subsample:
     input:
-        expand(str(QC_FP/'decontam'/'full'/'{sample}_{rp}.fastq.gz'), sample=Samples.keys(), rp=Pairs)
+        expand(str(QC_FP/'backup'/'{sample}_{rp}.fastq.gz'), sample = Samples.keys(), rp=Pairs)
