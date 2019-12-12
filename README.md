@@ -5,7 +5,7 @@ This is an extension to the [Sunbeam pipeline](https://github.com/sunbeam-labs/s
 
 To install:
 
-    sunbeam extend https://github.com/louiejtaylor/sbx_subsample/
+    sunbeam extend https://github.com/sunbeam-labs/sbx_subsample/
 
 Paramaters for `sbx_subsample` are automatically added on `sunbeam init`. If you're installing an extension in a project where you already have a config file, run the following to add the options for your newly added extension to your config (the `-i` flag means in-place config file modification; remove the `-i` flag to see the new config in stdout):
 
@@ -47,7 +47,7 @@ Clone the repo into your sunbeam `extensions/` folder, installing requirements t
 
     source activate sunbeam
     cd $SUNBEAM_DIR
-    git clone https://github.com/louiejtaylor/sbx_subsample/ extensions/sbx_subsample
+    git clone https://github.com/sunbeam-labs/sbx_subsample/ extensions/sbx_subsample
     conda install --file extensions/sbx_subsample/requirements.txt
 
 Add the options to your config file (replace "sunbeam_config.yml" with the name of your config file).
