@@ -7,6 +7,7 @@ rule sample_reads:
         out_fastq = str(QC_FP/'decontam'/'{sample}_{rp}.fastq'),
         reads = Cfg['sbx_subsample']['num_reads']
     threads: Cfg['sbx_subsample']['threads']
+    conda: "sbx_subsample_env.yml"
     shell:
         """
         mv {input} {output}
