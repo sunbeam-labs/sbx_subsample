@@ -3,9 +3,9 @@ This is an extension to the [Sunbeam pipeline](https://github.com/sunbeam-labs/s
 
 ## Installing
 
-Clone the repo into your sunbeam `extensions/` folder, installing requirements through Conda, and adding the new options to your existing configuration file. Make sure you've [installed Sunbeam](https://sunbeam.readthedocs.io/en/latest/quickstart.html) first!
+To install:
 
-    sunbeam init https://github.com/louiejtaylor/sbx_subsample/
+    sunbeam extend https://github.com/louiejtaylor/sbx_subsample/
 
 Paramaters for `sbx_subsample` are automatically added on `sunbeam init`. If you're installing an extension in a project where you already have a config file, run the following to add the options for your newly added extension to your config (the `-i` flag means in-place config file modification; remove the `-i` flag to see the new config in stdout):
 
